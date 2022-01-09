@@ -6,7 +6,7 @@ function FeedbackItems({item, handleDelete}) {
     
    
     return (
-        <Card reverse={true}>
+        <Card reverse={false}>
             <div className="num-display">{item.rating}</div>
             <button className="close" onClick={()=>handleDelete(item.id)}><FaTimes color="purple"></FaTimes></button>
             <div className="text display">{item.text}</div>
