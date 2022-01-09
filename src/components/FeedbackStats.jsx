@@ -2,19 +2,21 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 function FeedbackStats({feedback}) {
-
+    console.log("feedbackstats : ", feedback)
     //Calculate ratings avg
-    let average = feedback.reduce((acc,cur)=>{
-        return acc + cur.rating
-    },0) / feedback.length
+    let average =
+    feedback.reduce((acc, cur) => {
+      return acc + cur.rating
+    }, 0) / feedback.length
 
     average = average.toFixed(1).replace(/[.,]0$/,'')
 
     return (
-        <div className='feedback-stats'>
-         <h4>{feedback.length} Reviews</h4> 
-         <h4>Average Rating : {isNaN(average)?0:average}</h4> 
-        </div>
+        typeof feedback === "undefined"? <h1>"Loading"</h1>: <div className='feedback-stats'>
+        <h4>{feedback.length} Reviews</h4> 
+        <h4>Average Rating : {isNaN(average)?0:average}</h4> 
+       </div>
+       
     )
 }
 
