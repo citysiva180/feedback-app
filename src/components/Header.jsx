@@ -12,7 +12,8 @@ function Header({text, bgColor, textColor}) {
         <header style={headerStyles}>
             <div className="container">
                 <h2>
-                    {text}
+                    {/* This text is nothing but feedback UI nav bar */}
+                    {text}  
                 </h2>
             </div>
         </header>
