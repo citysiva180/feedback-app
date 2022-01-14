@@ -5,6 +5,7 @@ import FeedbackForm from "./components/FeedbackForm";
 import FeedbackData from "./data/FeedbackData"; //As of now, the feedback is comming from Feedback data json file
 import FeedbackList from "./components/FeedbackList";
 import FeedbackStats from "./components/FeedbackStats";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 function App() {
   //The feedback state will send the feedback data to the components post fetching from data file
   //If you see the feedback data json file is imported here where the data is commming from
