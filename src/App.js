@@ -5,6 +5,8 @@ import FeedbackForm from "./components/FeedbackForm";
 import FeedbackData from "./data/FeedbackData"; //As of now, the feedback is comming from Feedback data json file
 import FeedbackList from "./components/FeedbackList";
 import FeedbackStats from "./components/FeedbackStats";
+import AboutPage from "./components/Pages/AboutPage";
+import AboutIconLink from "./components/AboutIconLink";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 function App() {
   //The feedback state will send the feedback data to the components post fetching from data file
@@ -33,14 +35,29 @@ function App() {
   };
 
   return (
-    <>
+    <Router>
       <Header />
       <div className="container">
-        <FeedbackForm handleAdd={addFeedback}></FeedbackForm>
-        <FeedbackStats feedback={feedback}></FeedbackStats>
-        <FeedbackList feedback={feedback} handleDelete={deleteFeedback} />
+        <Routes>
+          <Route
+            exact
+            path="/"
+            element={
+              <>
+                <FeedbackForm handleAdd={addFeedback}></FeedbackForm>
+                <FeedbackStats feedback={feedback}></FeedbackStats>
+                <FeedbackList
+                  feedback={feedback}
+                  handleDelete={deleteFeedback}
+                />
+              </>
+            }
+          ></Route>
+          <Route path="/about" element={<AboutPage />}></Route>
+        </Routes>
+        <AboutIconLink></AboutIconLink>
       </div>
-    </>
+    </Router>
   );
 }
 
